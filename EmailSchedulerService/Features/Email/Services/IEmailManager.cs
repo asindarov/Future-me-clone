@@ -6,5 +6,7 @@ public interface IEmailManager
 {
     // TODO: load only needed properties of email details for performance sake!!!
     Task<IList<EmailDetail>> GetAllNotSentEmailDetails();
-    Task MarkAsSent(EmailDetail emailDetail);
+    Task MarkAsSentAsync(EmailDetail emailDetail, bool save=true);
+
+    Task SaveAsync();
 }
