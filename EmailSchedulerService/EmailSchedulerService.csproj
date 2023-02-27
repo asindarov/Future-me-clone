@@ -10,6 +10,7 @@
     <ItemGroup>
         <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
         <PackageReference Include="Confluent.Kafka" Version="2.0.2" />
+        <PackageReference Include="Liquibase.Cli" Version="4.19.0" />
         <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2">
@@ -31,6 +32,10 @@
     <ItemGroup>
       <ProjectReference Include="..\Domain\Domain.csproj" />
       <ProjectReference Include="..\Shared\Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="db-liquibase\changelog\changesets" />
     </ItemGroup>
 
 </Project>

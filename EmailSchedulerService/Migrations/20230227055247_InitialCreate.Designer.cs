@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EmailSchedulerService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230224124136_RenameEmailDetailsMessageDetailField")]
-    partial class RenameEmailDetailsMessageDetailField
+    [Migration("20230227055247_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace EmailSchedulerService.Migrations
                     b.Property<bool>("IsSent")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Message")
+                    b.Property<string>("MessageDetail")
                         .IsRequired()
                         .HasColumnType("text");
 
