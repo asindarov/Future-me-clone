@@ -19,7 +19,7 @@ namespace EmailSchedulerService.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     ReceiverEmail = table.Column<string>(type: "text", nullable: false),
-                    MessageDetail = table.Column<string>(type: "text", nullable: false),
+                    Message = table.Column<string>(type: "text", nullable: false),
                     DeliveryDate = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
                     IsSent = table.Column<bool>(type: "boolean", nullable: false)
                 },

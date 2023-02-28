@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  future-me-liquibase:
+    container_name: future-me-liquibase
+    image : liquibase/liquibase
+    command: --url=jdbc:postgresql://db:5432/futureme?user=postgres&password=postgres --changeLogFile=changelog.yaml update --logLevel debug
+    volumes:
+      - ./EmailSchedulerService/db-liquibase/changelog/changelog.yaml:/liquibase/changelog.yaml
+      - ./EmailSchedulerService/db-liquibase/changelog/changesets:/liquibase/db-liquibase/changelog/changesets
+    networks:
+      - future-me
+
+networks:
+  future-me:

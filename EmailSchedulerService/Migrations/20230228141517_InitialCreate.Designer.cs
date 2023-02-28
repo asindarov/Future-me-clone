@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EmailSchedulerService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230227055501_RenameEmailDetailsMessageDetailField")]
-    partial class RenameEmailDetailsMessageDetailField
+    [Migration("20230228141517_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

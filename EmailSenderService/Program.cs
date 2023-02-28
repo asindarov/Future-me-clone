@@ -12,4 +12,5 @@ IHost host = Host.CreateDefaultBuilder(args)
     })
     .Build();
 Console.WriteLine("Hello world!");
+
 host.Run();

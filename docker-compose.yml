@@ -6,13 +6,13 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - future-me
 
   broker:
     image: confluentinc/cp-kafka:7.3.0
     container_name: broker
     ports:
-    # To learn about configuring Kafka for access across networks see
-    # https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/
       - "9092:9092"
     depends_on:
       - zookeeper
@@ -24,6 +24,8 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+    networks:
+      - future-me
 
   db:
     image: postgres:15
@@ -37,11 +39,13 @@ services:
     
     volumes:
       - data:/var/lib/postgresql/data/
+    networks:
+      - future-me
   
   api:
     build: 
       context: .
-      dockerfile: Host/Dockerfile
+      dockerfile: EmailSchedulerService/Dockerfile
     ports:
       - "8000:80"
     depends_on:
@@ -49,8 +53,26 @@ services:
     environment:
       - DB_CONNECTION_STRING=Server=db;Port=5432;Database=futureme;User ID=postgres;Password=postgres;IntegratedSecurity=true;Pooling=true;
       - ASPNETCORE_URLS=http://+:80
-      - KAFKA_URL=broker:9092
-  
-  
+      - KAFKA_URL=broker:29092
+    networks:
+      - future-me
+     
+  email-sender:
+    build:
+      context: .
+      dockerfile: EmailSenderService/Dockerfile
+
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - KAFKA_URL=broker:29092
+
+    networks:
+      - future-me
+
+
+
 volumes:
   data:
+
+networks:
+  future-me:
