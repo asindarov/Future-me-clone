@@ -1,6 +1,6 @@
-# [futureme.org](futureme.org) API Server Clone
+# [futureme.org](https://www.futureme.org/) API Server Clone
 
-This project is a clone of the [futureme.org](futureme.org) API server. It consists of two services:
+This project is a clone of the [futureme.org](https://www.futureme.org/) API server. It consists of two services:
 
 
 * **EmailScheduler**: This service is responsible for scheduling and publishing emails to a Kafka topic named `"emails"`.
