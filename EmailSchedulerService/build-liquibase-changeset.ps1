@@ -38,7 +38,7 @@ try{
         dotnet ef migrations script -o $changelog_path
     }
     
-    $sql_scripts = Get-Content $changelog_path
+    $sql_scripts = $message = (Get-Content  $changelog_path) -join "`n"
     
     <# TODO: 
             Consider the case where the changelog is duplicated 
@@ -53,6 +53,8 @@ try{
     Write-Host $actual_changelog_content
 
     Set-Content -Path $changelog_path -Value $actual_changelog_content
+    
+#    $actual_changelog_content | Out-File -FilePath $changelog_path
     
     if (![string]::IsNullOrEmpty($logLevel) -and $run_liquibase)
     {

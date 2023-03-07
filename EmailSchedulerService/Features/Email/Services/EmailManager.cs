@@ -21,7 +21,13 @@ public class EmailManager : IEmailManager
 
     public async Task MarkAsSentAsync(EmailDetail emailDetail, bool save=true)
     {
+        await _appDbContext
+            .EmailDetails
+            .Where(e => e.Id == emailDetail.Id)
+            .ExecuteUpdateAsync(e => e.SetProperty(x => x.IsSent, x => true));
+        
         emailDetail.IsSent = true;
+        
         
         if (save)
         {

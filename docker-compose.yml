@@ -43,7 +43,7 @@ services:
       - future-me
   
   api:
-    build: 
+    build:
       context: .
       dockerfile: EmailSchedulerService/Dockerfile
     ports:
@@ -56,7 +56,7 @@ services:
       - KAFKA_URL=broker:29092
     networks:
       - future-me
-     
+  
   email-sender:
     build:
       context: .
