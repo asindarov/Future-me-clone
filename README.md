@@ -56,7 +56,7 @@ The `EmailSender` service runs in the background and automatically consumes mess
 The `EmailScheduler` service uses `Quartz.NET` to schedule a task that checks for unsent emails every minute. If there are any unsent emails, the job will publish them to the `"emails"` Kafka topic.
 
 
-Project's high level architecture diagram can be found [here](https://app.diagrams.net/#G10qdwKdouTHQNnOHjgjvOxF-9PFz01Cqu)
+Project's high level architecture diagram can be found [here](https://drive.google.com/file/d/10qdwKdouTHQNnOHjgjvOxF-9PFz01Cqu/view?usp=sharing)
 
 ## Future improvements
 
