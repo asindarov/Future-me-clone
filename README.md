@@ -64,3 +64,4 @@ Project's high level architecture diagram can be found [here](https://drive.goog
 1. Use third party services for sending real email messages and make them such that if third party service fails then `EmailSender` service should use another one as an alternative!
 2. Reduce database calls especially reduce update queries in Quartz job!
 3. Implement auto version liquibase changeset- versioning using powershell script!
+4. Add `nginx` configuration to docker-compose 
