@@ -18,7 +18,7 @@ This project is a clone of the futureme.org API server. It consists of two servi
 **Installing**
 
 1. Clone this repository to your local machine.
-2. Navigate to the root of the project.
+2. Navigate to the root of the project (Default name for root project should be : `Future-me-clone`).
 3. Run `docker-compose build` to build the Docker images.
 4. Run `docker-compose up` to start the services.
 5. Open up another terminal instance and run `docker-compose -f .\docker-compose.liquibase.yml up` to apply liquibase changesets to postgres database
@@ -55,6 +55,8 @@ The `EmailSender` service runs in the background and automatically consumes mess
 
 The `EmailScheduler` service uses `Quartz.NET` to schedule a task that checks for unsent emails every minute. If there are any unsent emails, the job will publish them to the `"emails"` Kafka topic.
 
+
+Project's high level architecture diagram can be found [here](https://app.diagrams.net/#G10qdwKdouTHQNnOHjgjvOxF-9PFz01Cqu)
 
 ## Future improvements
 
